@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>This is Ruby in the Cloud | Swisscom PaaS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link type="text/css" rel="stylesheet" href="resources/css/styles.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico"/>
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <img src="resources/images/logo-swisscom.png" />
+                <h1></h1>
+                <h2>Ruby</h2>
+            </div>
+            <div id="container">
+                <div class="container-top red"></div>
+                <div class="content">
+                    <h1>This is Ruby in the Cloud!</h1>
+                    Congratulation! You successfully pushed a Ruby app into the Swisscom Cloud.
+                </div>
+                <div class="content">
+                    <h2>System Environment</h2>
+                    <div>
+                        <table>
+                            <tbody>
+                                <%  ENV.each_pair do |k, v| %>
+                                    <tr>
+                                        <td><b><%= k %></b></td><td><%= v %></td>
+                                    </tr>
+                                <% end %>                                
+                             </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content">
+                    <h2>Request Headers</h2>
+                    <div>
+                        <table>
+                            <tbody>
+                                <% env.inject({}){|acc, (k,v)| acc[$1.downcase] = v if k =~ /^http_(.*)/i; acc}.sort.each do |k,v| %>
+                                    <tr>
+                                        <td><b><%= k %></b></td><td><%= v%></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>                    
+                </div>
+                <div class="content">
+                    <h2>Request Parameters</h2>
+                    <div>
+                        <table>
+                            <tbody>
+                                <%  params.each_pair do |k, v| %>
+                                    <tr>
+                                        <td><b><%= k %></b></td><td><%= v %></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="container-bottom gray"></div>
+            </div>
+            <div class="spacer"></div>
+            <div id="boxes">
+                <div id="box-1">
+                    <div class="container-top gray"></div>
+                    <div class="content">
+                        <h2>Hint</h2>
+                        <p>If you see this page appear after going through &quot;Add app&quot; in the Developer Portal Console, it means you did not provide the code as ZIP file and therefore this default application was selected instead.</p>
+                        <p>To make your application appear here, simply click on the tab &quot;Source Code&quot; and upload the archive containing your app.</p>
+                    </div>
+                    <div class="container-bottom"></div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="footer-content">
+                <span>&copy; Swisscom 2014</span>
+            </div>
+        </div>
+    </body>
+</html>

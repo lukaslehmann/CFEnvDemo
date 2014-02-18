@@ -1,0 +1,7 @@
+---
+applications:
+- name: ruby-sample
+  memory: 128M
+  instances: 1
+  host: ruby-sample
+  path: .
